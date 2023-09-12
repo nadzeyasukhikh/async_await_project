@@ -29,11 +29,14 @@ async function loadUserData(num = 0) {
     } catch (e) {
         console.log("Error:", e);
     }
+    localStorage.setItem('currentUserId', currentUserId.toString());
 }
 
 nextUser.addEventListener('click', () => loadUserData(1));
 
 prevUser.addEventListener('click', () => loadUserData(-1));
+
+currentUserId = parseInt(localStorage.getItem('currentUserId'), 10) || 1;
 
 loadUserData();
 
